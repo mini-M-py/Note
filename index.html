@@ -3,14 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <title>Markdown Viewer</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown-light.min.css">
+
+ 
 </head>
 <body>
-  <div id="content"></div>
-
+    
+  <div id="content" class="markdown-body"></div>
   <!-- Marked.js (CDN) -->
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
 
-  <script>
+ <script>
     // Load any markdown file (e.g., README.md in same folder)
       const params = new URLSearchParams(window.location.search);
       const file_name = params.get("file") || "note.md"
@@ -18,6 +22,7 @@
       .then(res => res.text())
       .then(md => {
         document.getElementById("content").innerHTML = marked.parse(md);
+        content.querySelectorAll('pre code').forEach(block => hljs.highlightElement(block));
       });
   </script>
 </body>
