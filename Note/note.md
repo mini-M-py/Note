@@ -36,7 +36,7 @@ _This is italics lines_
 | 1)  | Hi    |
 | 2)  | Hello |
 
-<secrets>
+<details>
 <summary>Click for Hidden details</summary>
 Super secret things
-</secrets>
+</details>
