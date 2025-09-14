@@ -1,2 +1,2 @@
 # Hello world
-[Next](/?file=file.md)
+[Next](/Note/?file=file.md)
