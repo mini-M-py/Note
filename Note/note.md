@@ -28,8 +28,8 @@ _This is italics lines_
 
 1. Numbered List
 
-[ ] unchecked box
-[X] checked box
+- [ ] unchecked box
+- [x] checked box
 
 | SN  | Item  |
 | --- | ----- |
