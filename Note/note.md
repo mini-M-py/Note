@@ -11,7 +11,7 @@ printf("Hello world")
 
 :memo:
 
-<!-- ![image](resource/image.jpg) -->
+![image](resource/image.jpg) {width=50%}
 
 `This is one liner `
 
