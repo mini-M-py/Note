@@ -12,7 +12,9 @@
 
   <script>
     // Load any markdown file (e.g., README.md in same folder)
-    fetch("Note/note.md")
+      const params = new URLSearchParams(window.location.search);
+      const file_name = params.get("file") || "note.md"
+    fetch(`Note/${file_name}`)
       .then(res => res.text())
       .then(md => {
         document.getElementById("content").innerHTML = marked.parse(md);
