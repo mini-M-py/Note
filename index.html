@@ -4,12 +4,26 @@
   <meta charset="UTF-8">
   <title>Note</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown-light.min.css">
-
+    <style>
+        .wrapper{
+            padding: 50px;
+        } 
+        #content{
+            padding: 10px;
+            border: solid;
+            border-radius: 9px;
+            overflow: scroll;
+        }
+        .markdown-body img{
+            max-width:  50%;
+        }
+    </style>
  
 </head>
 <body>
-    
-  <div id="content" class="markdown-body"></div>
+    <div class="wrapper">
+        <div id="content" class="markdown-body"></div>
+    </div>    
   <!-- Marked.js (CDN) -->
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
