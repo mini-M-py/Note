@@ -17,7 +17,7 @@
  <script>
     // Load any markdown file (e.g., README.md in same folder)
       const params = new URLSearchParams(window.location.search);
-      const file_name = params.get("file") || "note.md"
+      const file_name = params.get("file") || "index.md"
     fetch(`Note/${file_name}`)
       .then(res => res.text())
       .then(md => {
