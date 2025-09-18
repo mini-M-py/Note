@@ -24,6 +24,8 @@
 }
 
 .index-list li:hover{
+    transform: scale(1.0075);
+    z-index: 1;
     border-color: gray;
 }
 
