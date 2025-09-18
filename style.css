@@ -1,0 +1,37 @@
+.wrapper{
+    padding: 50px;
+} 
+#content{
+    padding: 10px;
+    border: solid;
+    border-radius: 9px;
+    overflow: scroll;
+}
+
+.markdown-body img{
+    max-width:  50%;
+}
+
+.markdown-body a {
+    border: 3px;
+}
+
+.index-list li{
+    padding: 10px;
+    border:  solid;
+    border-width:  4px 10px 4px 10px;
+    border-radius: 9px;
+}
+
+.index-list li:hover{
+    
+    border-color: gray;
+}
+
+.index-list a{
+    color: black;
+}
+
+.index-list a:hover{
+    text-decoration: none;
+}

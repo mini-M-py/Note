@@ -1,5 +1,12 @@
 ## INDEX
 
-1. [Operating System](?file=os/index.md)
-2. [Bash](?file=bash/index.md)
+<ol class="index-list">
+    <li>
+        <a href="?file=os/index.md">Operating System </a>
+    </li>       
+    <li>
+        <a href="?file=bash/index.md">Bash</a>
+    </li>
+</ol>
+
 
