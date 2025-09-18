@@ -24,11 +24,11 @@
 }
 
 .index-list li:hover{
-    
     border-color: gray;
 }
 
 .index-list a{
+    display: block;
     color: black;
 }
 
