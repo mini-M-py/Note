@@ -32,8 +32,13 @@ complex programs but one can start developing it small, simple and limited and
 then grew beyond their original structure or scope.
 
 #### Simple Structure
-![Simple structure](resource/os_image1.png)
+![Simple structure](resource/os_image1.pn
 
+#### Layered Structure
+This structure breaks up the operating system into different layers. The bottoms
+layer is the hardware and the topmost layer is the user interface. This allows
+developer to change and maintain the inner mechanism of each layer without 
+disturbing the implementation of other layer as long as external interface of 
+each layer remains same.
 
-
-
+#### Monolithic systems
