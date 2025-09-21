@@ -41,4 +41,8 @@ developer to change and maintain the inner mechanism of each layer without
 disturbing the implementation of other layer as long as external interface of 
 each layer remains same.
 
-#### Monolithic systems
+#### Monolithic Structure
+In this structure create as a collection ofprocedures (function), each function can call each other when ever its needed. The interface of function like parameters or arguments and  return
+value are  well defined. Developer  can change inner complexity of  any prcedure without disturbing other one as long as interface of procedure reamin same.
+
+#### Microkernel Structure
