@@ -42,7 +42,17 @@ disturbing the implementation of other layer as long as external interface of
 each layer remains same.
 
 #### Monolithic Structure
-In this structure create as a collection ofprocedures (function), each function can call each other when ever its needed. The interface of function like parameters or arguments and  return
-value are  well defined. Developer  can change inner complexity of  any prcedure without disturbing other one as long as interface of procedure reamin same.
+In this structure create as a collection ofprocedures (function), each function
+can call each other when ever its needed. The interface of function like 
+parameters or arguments and  return value are  well defined. Developer  can 
+change inner complexity of  any prcedure without disturbing other one as 
+long as interface of procedure reamin same.
 
 #### Microkernel Structure
+In this structure all the nonessential parts of kernel are removed and make
+kernel minimal as much as possible.The operating system is divide into kernel
+and other programs. This makes other program run over the microkernel and make
+extending of OS efficient. The only overhead of this structure is constant 
+message transfering between kernela and other porgrams.
+
+
