@@ -32,7 +32,11 @@ complex programs but one can start developing it small, simple and limited and
 then grew beyond their original structure or scope.
 
 #### Simple Structure
-![Simple structure](resource/os_image1.pn
+This is non modular structure that is all the abstract layer of os are
+interconnected with each other. Changing one  part of OS may significantly 
+affect on other  part  of os.
+
+![Simple structure](resource/os_image1.png)
 
 #### Layered Structure
 This structure breaks up the operating system into different layers. The bottoms
@@ -45,14 +49,14 @@ each layer remains same.
 In this structure create as a collection ofprocedures (function), each function
 can call each other when ever its needed. The interface of function like 
 parameters or arguments and  return value are  well defined. Developer  can 
-change inner complexity of  any prcedure without disturbing other one as 
-long as interface of procedure reamin same.
+change inner complexity of  any procedure without disturbing other one as 
+long as interface of procedure remain same.
 
 #### Microkernel Structure
 In this structure all the nonessential parts of kernel are removed and make
 kernel minimal as much as possible.The operating system is divide into kernel
 and other programs. This makes other program run over the microkernel and make
 extending of OS efficient. The only overhead of this structure is constant 
-message transfering between kernela and other porgrams.
+message transfering between kernel and other porgrams.
 
 
