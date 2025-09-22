@@ -52,6 +52,8 @@ parameters or arguments and  return value are  well defined. Developer  can
 change inner complexity of  any procedure without disturbing other one as 
 long as interface of procedure remain same.
 
+![ Monolithic Structure](resource/os_image2.jpeg)
+
 #### Microkernel Structure
 In this structure all the nonessential parts of kernel are removed and make
 kernel minimal as much as possible.The operating system is divide into kernel
@@ -59,4 +61,4 @@ and other programs. This makes other program run over the microkernel and make
 extending of OS efficient. The only overhead of this structure is constant 
 message transfering between kernel and other porgrams.
 
-
+![microkernel Structure](resource/os_image3.jpeg)

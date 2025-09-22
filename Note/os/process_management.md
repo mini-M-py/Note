@@ -19,4 +19,6 @@ hard drive etc.
 
 5. **Terminated**: This state indicates that the process is finished executing.
 
+#### Process Control Block (PCB)
+
 
