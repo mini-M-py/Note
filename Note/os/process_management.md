@@ -60,3 +60,9 @@ process execution, time limits, execution ID etc.
 
 10. **IO status information**: This include a list of I/O devices allocated to 
 the process.
+
+#### Process Hierarchies 
+
+The process of creating new process from their parent process and again creating 
+new process from previously created process in tree like structure is called
+process Hierarchies. 
