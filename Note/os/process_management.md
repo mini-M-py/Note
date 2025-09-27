@@ -1,6 +1,11 @@
 #### Process
 The computer program that is currently executing on the processor is called
-process.
+process. It turns out one want to run multiple program (process) in a single
+CPU. For example consider your personal computer play music, run browsers etc
+at the same time. To accomplish this kind of behaviour OS create illusion of 
+running multiple CPUs running at the same time but in reality there is only one
+physical CPU. This method of creating illusing of multiple CPUs is called
+virtulization of CPU. 
 
 ### Process Life cycle
 When process is executing it goes through the different states. These states 
