@@ -1,8 +1,8 @@
 ## Note
 
-[Visit site](https://mini-m-py.github.io/Note/index.html)
+[Visit site](https://zeneral.github.io/Note/)
 
-[Github](https://github.com/mini-M-py/Note.git)
+[Github](https://github.com/zeneral/Note.git)
 
 **File structure**
 ```
