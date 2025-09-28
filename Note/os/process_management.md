@@ -7,6 +7,26 @@ running multiple CPUs running at the same time but in reality there is only one
 physical CPU. This method of creating illusing of multiple CPUs is called
 virtulization of CPU. 
 
+### Process APIs
+- Create: An operating system must include a method to create new process. When
+use type comand on shell or click icons OS should create new process. The first
+thing os do is load execution code and static data from hard drive to memory. 
+In early OSes use to load the whole program at once but new or modern OSes uses
+lazy approach ie; only loading certain chunks of code and data from hard drive.
+
+- Destroy: As there is way to create process then there should be a way to 
+destroy processes forcefully. Of course processes will run and exit by 
+themselves. Sometime we have to kill them forcefully.
+
+- Wait: Sometime processes needed to be wait for other processes or resoponce to
+peripheral devices thus waiting interface is quite useful.
+
+- Miscellaneous Control: Other then distroy or wait there are sometime some 
+other interface included on Oses. For example: Suspend, it use to pause the 
+execution of program and the resume to resume the suspended program.
+
+- status: There should be a way to get current status of processes.
+
 ### Process Life cycle
 When process is executing it goes through the different states. These states 
 are not standers but in general modern OS uses following types of states in 
@@ -44,16 +64,16 @@ resources.
 simulteneously and each process has its unique ID. This ID helps to schedling 
 the processes.
 
-4 **Pointer**: A pointer to a parent process (More inforamtion is at prcess 
+4. **Pointer**: A pointer to a parent process (More inforamtion is at prcess 
 Hierarchies)
 
-5 **Program Counter**: Program counter is pointer to address of the next 
+5. **Program Counter**: Program counter is pointer to address of the next 
 instruction to be executed for this process.
 
-6 **CPU registers**: This information is comprising with various registers,
+6. **CPU registers**: This information is comprising with various registers,
 such index and stack that are associated with process.
 
-7. **CPU Scheduling **: There are many process running simulteneously and each 
+7. **CPU Scheduling**: There are many process running simulteneously and each 
 process have its prority. Scheduling information is very useful in managing any 
 computer system.
 
