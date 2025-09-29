@@ -91,3 +91,15 @@ the process.
 The process of creating new process from their parent process and again creating 
 new process from previously created process in tree like structure is called
 process Hierarchies. 
+
+![process Hierarchies](resource/os_image4.png)
+
+A create B and C\
+B create D, E and F\
+C create G\
+D create H\
+H create I
+
+### Process Implementation
+
+
