@@ -101,5 +101,41 @@ D create H\
 H create I
 
 ### Process Implementation
+In virtulization OS has to share physical CPU among the jobs seemingly at the
+same time. In a simple idea, we run a process a little while and run another 
+little while. But there are some problems while implementing this idea. Like,
+*performance*, *control over the system*.  
+
+**Direct Execution**
+
+The **Direct Execution** means directly run the programme in CPU becaues it
+give the maximum performance. When OS wantsto start a new process, it creates 
+entry on process entry, allocates the memory load the code and static data 
+into memory from disk and execute the code in CPU and jumps back to kernel.
+Sounds simple? but it is not we have not consider what happens when process do
+something unhealthy to the system or how to switch between processes to 
+implement virtulization.
+
+Running natively on CPU has it owns obvious advantages but what if process want
+to some ristricted task like ganing control over I/O, read and write files etc.
+we cannot let any processes do whatever it wants. It would be complete disaster.
+TO over come this problem it take new things to introduce called **Process mode**.
+There are two modes in general:
+
+- User mode.
+- kernel mode.
+
+User mode it more ristrictive, it has to take promission or ask for kernel help
+to take some restictive action like reading and writing on files or I/O 
+opeations.
+
+Kernel mode is exact opposite of user mode. It has complete control over the 
+system. Processes run on kernel mode can performe any kind of ristrictive 
+operations.
+
+To performe restrictive task, processes run in usermode make system calls like
+reading and writing files and creating new processes, communicating between two
+processes then kernel carefully give privilage to process if it allowed. After 
+return from the system calls the privilage goes back to use mode.
 
 
