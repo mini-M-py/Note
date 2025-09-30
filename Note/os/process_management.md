@@ -117,19 +117,19 @@ something unhealthy to the system or how to switch between processes to
 implement virtulization.
 
 Running natively on CPU has it owns obvious advantages but what if process want
-to some ristricted task like ganing control over I/O, read and write files etc.
+to do some ristricted task like ganing control over I/O, read and write files etc.
 we cannot let any processes do whatever it wants. It would be complete disaster.
-TO over come this problem it take new things to introduce called **Process mode**.
+To over come this problem it take new things to introduce called **Process mode**.
 There are two modes in general:
 
 - User mode.
 - kernel mode.
 
-User mode it more ristrictive, it has to take promission or ask for kernel help
+**User mode*** is more ristrictive, it has to take promission or ask for kernel help
 to take some restictive action like reading and writing on files or I/O 
 opeations.
 
-Kernel mode is exact opposite of user mode. It has complete control over the 
+**Kernel mode** is exact opposite of user mode. It has complete control over the 
 system. Processes run on kernel mode can performe any kind of ristrictive 
 operations.
 
@@ -137,5 +137,52 @@ To performe restrictive task, processes run in usermode make system calls like
 reading and writing files and creating new processes, communicating between two
 processes then kernel carefully give privilage to process if it allowed. After 
 return from the system calls the privilage goes back to use mode.
+
+The another big problem of direct execution is switching process. Switching 
+processes should be simple right? Just stop one and start another. When we think
+back, if a process is running on cpu then os is not running so what can we do
+at all?
+
+- **Coopeartive Approach**: In this apporach OS waits for the process to give 
+control to the OS. A process give contorol to the OS after completeing its task,
+calling some system calls or doing some illegal activities. This is a passive
+approach to switch process. when a process by design or by bugs that doesnot
+give control back to OS then OS just strike down the processes which do some
+offending behaviour.
+
+- **Non cooperative Approach**: It turn out an OS cannot do anything without 
+any help hardware to get control form the process which rufuse to give control
+to the OS form cooperative approcach. In a non Coopeartive approach OS takes 
+help from timer interrupt device. The timer can programmed to make interrupt 
+signal after certain time to halt current processes and switch to OS. The timer
+should be start at the boot time. Starting and stoping timer are privilaged
+instructions. This works similarly like when an sys-call trap into kernel.
+
+The role of process control block (PCB) shines here the most. After the control
+goes over the OS. It has two option run currently running process or switch to
+another process. Before swithching OS has to store the some register value of
+currently running process in PCB because we have to restore its values and 
+continue to execute after it gets its turn to execute. After storing current
+process value then it restore value of next process and return control to that 
+process. Like this switching between two process happens.\
+PCB has the most importat part here because it sotres and restore all  the 
+information related to the process.
+
+Every processes has it own user stack and kernel stack. When trap happens all the
+necessary register values are push to the kernel stack. If OS decide to run
+currently running process then it will restore those value to the use stack
+and continue running. If it decide to switch to another process it will save 
+those value to PCB. Restoring happend in same ways firstly it resotre all vaues
+and put it on kernel stack form PCB then push those value to user stack and 
+after that register will restore from the stack.
+
+There are some reason to use kernel stack:
+1. If someone mess with user stack while running cpu in kernel mode then kernel
+stack is safe.
+
+2. The register value of process won't get disappear while running kernel.
+
+
+
 
 
