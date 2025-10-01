@@ -10,6 +10,9 @@
     <li>
         <a href="?file=os/process_management.md">Process Management</a>
     </li>
+    <li>
+        <a href="?file=os/cpu_scheduling.md">CPU scheduling</a>
+    </li>
 </ol>
 
 
