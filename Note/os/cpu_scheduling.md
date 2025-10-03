@@ -26,3 +26,9 @@ Turnarond time is a **performance** matric. Another metric of interest is
 **fairness** as measured. Performance and Faireness are two odds in scheduling.
 Many wants to optimize performance at cost of running few processes thus decreasing
 fairness.
+
+- **First In First Out (FIFO)**: The most basic algorithm we can implement is 
+FIFO or sometime called First Come First Serve (FCFS).  It is easy implement.
+If three different processes A, B and C are almost arrive at the same time then
+from our assumtions it is a quite effective algorithm.
+
