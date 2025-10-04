@@ -44,19 +44,33 @@ queued behind heavy resource consumers.
 - **Short Job First**: This is the another method of cpu scheduling which avoid
 **convoy effect**. The name describe the policy itself. It runs the shortest
 job first and go to next shortest and so on.\
-![FIFO](resource/os_image7.png)\
+![SJF](resource/os_image7.png)\
 Average Turnaround time will be <sup>(10+20+120)</sup>&frasl;<sub>3</sub> = 50.
 Given our assumtion "*All job will arrive at same time*" SJF is indeed a optimal
 algorithm. But our assumtion is unrealistic so, let's drop that assumtion now
 that job can arrive any time.\
 Let's assume A arrives at first which have to run 100s the job B and C arrives
 which came 10s after the A arrives and have to run for 10s each.
-![FIFO](resource/os_image8.png)\
+![SJF](resource/os_image8.png)\
 And we are back to same the problem because A arrives at first so it is force to
 run until it has completed and only after that B and C will get their turn to 
 execute.\
 Turnaround time will be <sup>(100+(110-10)+(120-10))</sup>&frasl;<sub>3</sub>
 =103.33 .
+
+- **Shortest Time-to-Completion First**: To address above issue we have to drop
+another assumtion "*Once started, each job should run to completion*". After
+new jobs arrive STFC determine which job has shortest remaining time to complete
+and switch to it.\
+![STFC](resource/os_image9.png)\
+In above image, A arrives at first that has 100s completion time then CPU start
+executing it. After 10s new two jobs arrives B and C which has only 10s 
+completion time. Since, B and C has less completion time schedular switch to
+B or C.\
+Turnaround time will be <sup>(120+(20-10)+(30-10))</sup>&frasl;<sub>3</sub> 
+= 50.
+
+
 
 
 
