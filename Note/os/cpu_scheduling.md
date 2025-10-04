@@ -31,19 +31,38 @@ fairness.
 FIFO or sometime called First Come First Serve (FCFS).  It is easy implement.
 If three different processes A, B and C are almost arrive at the same time then
 from our assumtions it is a quite effective algorithm. Asssumeing each job run
-for 10s.
-
-![FIFO](resource/os_image5.png)
-
-Average Turnaround time will be <sup>(10+20+30)</sup>&frasl;<sub>3</sub>=20.
-
+for 10s.\
+![FIFO](resource/os_image5.png)\
+Average Turnaround time will be <sup>(10+20+30)</sup>&frasl;<sub>3</sub>=20.\
 Let's drop the first assumtion "*Each job runs for the same amount of time*".
-This time A runs for 100s and B and C run for 10s
-
-![FIFO](resource/os_image6.png)
-
+This time A runs for 100s and B and C run for 10s\
+![FIFO](resource/os_image6.png)\
 Average Turnaround time will be <sup>(100+110+120)</sup>&frasl;<sub>3</sub> = 110.
 This is called **convoy effect** where relatively light resource consumers get
 queued behind heavy resource consumers.
+
+- **Short Job First**: This is the another method of cpu scheduling which avoid
+**convoy effect**. The name describe the policy itself. It runs the shortest
+job first and go to next shortest and so on.\
+![FIFO](resource/os_image7.png)\
+Average Turnaround time will be <sup>(10+20+120)</sup>&frasl;<sub>3</sub> = 50.
+Given our assumtion "*All job will arrive at same time*" SJF is indeed a optimal
+algorithm. But our assumtion is unrealistic so, let's drop that assumtion now
+that job can arrive any time.\
+Let's assume A arrives at first which have to run 100s the job B and C arrives
+which came 10s after the A arrives and have to run for 10s each.
+![FIFO](resource/os_image8.png)\
+And we are back to same the problem because A arrives at first so it is force to
+run until it has completed and only after that B and C will get their turn to 
+execute.\
+Turnaround time will be <sup>(100+(110-10)+(120-10))</sup>&frasl;<sub>3</sub>
+=103.33 .
+
+
+
+
+
+
+
 
 
