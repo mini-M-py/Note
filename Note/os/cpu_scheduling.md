@@ -76,6 +76,18 @@ a system and to the first time it is scheduled.\
 T<sub>response</sub> = T<sub>first turn</sub> - T<sub>arrives</sub>\
 STFC and related policies are not best for the responsive system.
 
+- **Round Robin**: To make the system more responsive new scheduling policy is
+introduced called **Round Robin(RR)**. The idea is simple insted of running
+job to completion it just run each job for a certain **time slice**. It repeatedly
+does so until all jobs finished.\
+Assume job A, B and C arrives at the system at the same time each job require
+5s to complete. For RR time-slice of 1s would cycle through the job quickly.\
+The response time for RR is <sup>0+1+2</sup>&frasl;<sub>3</sub> = 1.\
+The response time for STFC is <sup>0+5+10</sup>&frasl;<sub>3</sub> = 5.\
+As we can see time-slice is critical to RR. The lower the time-slice the more
+system became responsive in RR. However, making time-slice too small is 
+problematic because we have to consider the cost of context switching.
+
 
 
 
