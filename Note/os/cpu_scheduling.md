@@ -70,6 +70,12 @@ B or C.\
 Turnaround time will be <sup>(120+(20-10)+(30-10))</sup>&frasl;<sub>3</sub> 
 = 50.
 
+User demands interactive performance from the system thus, new matric is defined
+**Response Time**. We define resoponse time as time from when job arrives in 
+a system and to the first time it is scheduled.\
+T<sub>response</sub> = T<sub>first turn</sub> - T<sub>arrives</sub>\
+STFC and related policies are not best for the responsive system.
+
 
 
 
