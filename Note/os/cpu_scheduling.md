@@ -86,7 +86,35 @@ The response time for RR is <sup>0+1+2</sup>&frasl;<sub>3</sub> = 1.\
 The response time for STFC is <sup>0+5+10</sup>&frasl;<sub>3</sub> = 5.\
 As we can see time-slice is critical to RR. The lower the time-slice the more
 system became responsive in RR. However, making time-slice too small is 
-problematic because we have to consider the cost of context switching.
+problematic because we have to consider the cost of context switching.\
+![RR](resource/os_image10.png)\
+Generally, any policy that are fair (like RR) ie; evenly devides the CPU among
+processes on a small time scale will perfome poorly on turnaround time metrics.
+
+- Incorporating I/O: First of all we have to drop our assumtion *All job use 
+cpu only*. We need program that takes input and give output. When currently 
+running job request I/O clearly CPU is not utilized at that blocked state thus
+schedular have to assign another job at that time. Once, I/O complete OS return
+the process from block state to ready state and schedular can decide wheather
+run that process immediately or not.\
+Let's assume we have two jobs A and B each needs 50ms of CPU. However A runs 10ms
+and issue I/O request and I/O takes 10ms.\
+A common approach is to take 10ms subjob of A as entirely different task. Then
+schedular choose either to run 10ms A or 50 ms B. Assuming we are using STFC
+schedular we choose 10ms A to run first after subjob of A is completed B will
+run, after I/O request completed a new subjob A is submitted.\
+![IO](resource/os_image11.png)
+The main idea behind this apporoach is make CPU busy while other processes are
+waiting fo I/O.
+
+Another Big hurdle over developing schedular is: we donot know the length of jobs.
+Until now, we are assuming *The run time each job is known* but this is unrealistic
+assumtion. Scheduling methond line STFC, SJF are build upon this assumtion.
+
+
+
+
+
 
 
 
