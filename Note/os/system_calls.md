@@ -7,7 +7,7 @@ provides require resources. When system calls are running control over machine
 goes to kernel and after finishing it give control back to user's programs.
 
 **Types of system calls:**
-Different system call are rquired in different situations. Those call server 
+Different system call are required in different situations. Those call server 
 different purpose. There are mainly five types of system calls:
 
 - **Process Control**: These system calls deal with process like creating, 
@@ -17,13 +17,13 @@ terminating etc.
 read, write etc.
 
 - **Device Management**: These calls are used to manage peripheral devices like 
-Keyboard, Mouse, Moniter, Printer etc.
+Keyboard, Mouse, Monitor, Printer etc.
 
-- **Information Maintenance**: These calls are used to handel and transfer 
-information between kerneal and user space.
+- **Information Maintenance**: These calls are used to handle and transfer 
+information between kernel and user space.
 
 - **Communication**: These calls deals with creating and deleting communication
-conncections. These are use to pass information and data between processes.
+connections. These are use to pass information and data between processes.
 
 | Types of system calls | Unix |
 |-----------------------|------|
@@ -38,12 +38,12 @@ A system call looks like the typical function calls on C programming language.
 The fact it is a function call but hidden inside that is famous trap 
 instructions. When we call any system calls like open() we are calling C 
 library function which agree upon calling convention with kernel.\
-Of courese it is not allowed to user mode processes directly jumped to the
-address of the system calls and execute it like other funciton call. 
-There is  something call trap which is invoke the CPU to go into kernel mode.
-*Hey go to the kernel mode and handel this.* The user code only responsible to put 
-syscall number to the desire resgister or stack. Then system examine the number
-and look up to the trap table and jump to the coressponding address to handel
+Of course it is not allowed to user mode processes directly jumped to the
+address of the system calls and execute it like other function call. 
+There is something call trap which is invoke the CPU to go into kernel mode.
+*Hey go to the kernel mode and handle this.* The user code only responsible to put 
+syscall number to the desire register or stack. Then system examine the number
+and look up to the trap table and jump to the corresponding address to handle
 system calls
 
 > **Trap Table**: The system keeps table in memory at the boot time which has
@@ -53,10 +53,10 @@ syscall that user code invoked.
 
 ### System Programs
 **System Programs** are different from **system calls**. They provide an 
-environment where programs can be deveoped and executed. In the simple term,
+environment where programs can be developed and executed. In the simple term,
 they provide bridge between the user interface and system calls. For example,
-compiler, shell, web server, networking system  etc. They mostly have low
-runtime overhead. Some part of prgrams may be directly written in assembly 
+compiler, shell, web server, networking system etc. They mostly have low
+runtime overhead. Some part of programs may be directly written in assembly 
 language. The user view of the system is actually defined by system programs
 and not system calls. The system programs are used to program the operating
 system software. 

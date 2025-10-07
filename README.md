@@ -2,7 +2,7 @@
 
 [Visit site](https://zeneral.github.io/Note/)
 
-[Github](https://github.com/zeneral/Note.git)
+[GitHub](https://github.com/zeneral/Note.git)
 
 **File structure**
 ```
@@ -33,13 +33,13 @@ Note/
 - Image link format `![Image][resource/subject_image1.png]`
 - Keep code example consistent.
 - You may create own branch and make changes.
-- You may correct spelling and Grammtical mistakes
+- You may correct spelling and Grammatical mistakes
 
 
 **How to run it locally?**
-1. create a directory `mkdir new` and `cd new`.
-2. clone this repository `git clone https://github.com/mini-M-py/Note.git`.
-3. start python server `python -m http.server 8000`.
-4. visit `http://localhost:8000/Note` inside the browser.
+1. Create a directory `mkdir new` and `cd new`.
+2. Clone this repository `git clone https://github.com/mini-M-py/Note.git`.
+3. Start python server `python -m http.server 8000`.
+4. Visit `http://localhost:8000/Note` inside the browser.
 
-This way local server behaves same as github site.
+This way local server behaves same as GitHub site.
