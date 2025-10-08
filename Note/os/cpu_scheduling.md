@@ -103,7 +103,7 @@ A common approach is to take 10ms subjob of A as entirely different task. Then
 schedular choose either to run 10ms A or 50 ms B. Assuming we are using STFC
 schedular we choose 10ms A to run first after subjob of A is completed B will
 run, after I/O request completed a new subjob A is submitted.\
-![IO](resource/os_image11.png)
+![IO](resource/os_image11.png)\
 The main idea behind this approach is make CPU busy while other processes are
 waiting for I/O.
 
@@ -111,18 +111,65 @@ Another Big hurdle over developing scheduler is: we don't know the length of job
 Until now, we are assuming *The run time each job is known* but this is unrealistic
 assumption. Scheduling method line STFC, SJF are build upon this assumption.
 
+### The Multi-level Feedback Queue
 
+The Multi-level Feedback Queue (MLFQ) is firstly introduced by **Corbato et al.**
+in 1962 AD in a system known as Compatible Time-Sharing System `(CTSS)`. The 
+problem MLFQ tries to solve is optimize Turn around time without prior knowledge 
+of job length. Second, MLFQ would like to make system responsive by minimizing
+Response time.
 
+MLFQ has different queue which have different `priority level`. A job with higher
+priority will run more often. Jobs with same priority will use `Round Robin`
+scheduling.
 
+- Rule 1: If priority(A)>priority(B) then A runs B doesn't.
+- Rule 2: If priority(A)=priority(B) then A and B run in RR.
 
+MLFQ varies the job priority based on its behavior. If a jobs repeatedly waiting
+for input, MLFQ put its priority high. If job uses CPU intensively for a long 
+period of time, MLFQ lower its priority. In this way MLFQ learns about processes
+behavior and predict its future behavior.
 
+#### How to change priority
 
+When job is firstly introduced, it is placed at higher priority then change its
+priority over the lifetime.
 
+- Rule 3: When job enters the system, it is placed at highest priority.
+- Rule 4: If job uses entire time slice while running, it priority is reduced.
+- Rule 5: If job gives up the CPU before time slice, it stays at same priority 
+level.
 
+![MLFQ](resource/os_image12.png)\
+As we can see, A enters at highest priority and gradually it's priority decreased.
 
+What happened when a short running job arrives? Let's say B. Now there are two 
+jobs long running A and short running B.
 
+![MLFQ](resource/os_image13.png)\
+It doesn't know weather jobs are long running or short running. It assume a job
+is short running at first, it run and quickly finished; if it isn't short job then
+it reduce priority slowly and proving itself a long running job.
 
+#### What about I/O?
+When an interactive job does a lot of I/O then it will give up CPU before time
+slice. In this case we don't reduce job's priority according to **Rule 5**.\
+Let's say B is an interactive job which need CPU for very short amount of time
+before performing I/O which is competing against long running Job A.
 
+![MLFQ](resource/os_image14.png)\
+B is staying at the top because it gives up cpu before time slice.
 
+At this point, MLFQ doing fairly good but there is problem called **Starvation**.
+When there are "too many" interactive jobs in the system, they will consume all
+the CPU in return low priority job won't get any chance to run.
 
+![MLFQ](resource/os_image15.png)\
+
+Secondly, user can rewrite the program to **game the scheduler**. Gaming a 
+scheduler is a technique in which user tricked the scheduler to give more 
+resource to their program than fair resource distribution. In this case,
+we can do that by making I/O operation before time slice which we don't care 
+about in result our program stays at top priority and get more CPU time.
 
