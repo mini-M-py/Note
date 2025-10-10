@@ -163,7 +163,7 @@ B is staying at the top because it gives up cpu before the time slice.
 
 At this point, MLFQ is doing fairly good, but there is a problem called **Starvation**.
 When there are "too many" interactive jobs in the system, they will consume all
-the CPU in return  low-priority jobs won't get any chance to run.
+the CPU in return low-priority jobs won't get any chance to run.
 
 ![MLFQ](resource/os_image15.png)\
 
@@ -173,3 +173,25 @@ resource to their program than fair resource distribution. In this case,
 We can do that by making an I/O operation before the time slice, which we don't care about 
 As in result, our program stays at the top priority and gets more CPU time.
 
+Finally, a program may change it behavior. For example, after being long-running
+job at first, it suddenly changes into an interactive job and it will not treated
+as other interactive jobs.
+
+#### The Priority Boost
+The idea of priority boost is simple just boost the priority of a job after 
+certain time slice 'S'. This solves starvation problem. A job will treated 
+differently after boost if it changes its behavior.
+- Rule 6: After some time period S, move all the jobs to the top-priority.
+
+![MLFQ](resource/os_image16.png)
+
+#### Better Accounting
+Instead of assigning priority of a job, **Better Accounting** gives certain
+time allotment if it runs more time than time allotment then it will demoted to
+lower priority queue. Time allotment would be different for each priority queue
+(high priority queue has lower time allotment than low priority queue). In this
+way it solves the **Gaming Scheduler** problem.
+- Rule 7: If a job used all allotted time at given level then its priority will
+reduced
+
+![MLFQ](resource/os_image17.png)
