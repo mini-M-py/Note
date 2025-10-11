@@ -195,3 +195,13 @@ way it solves the **Gaming Scheduler** problem.
 reduced
 
 ![MLFQ](resource/os_image17.png)
+
+### Proportional Share Scheduling
+Instead of optimizing trunaround time or response time proportional share 
+scheduling will guarantee each job obtain a certain percentage of CPU time.
+One of the great example of is lottery scheduling.
+
+- **Lottery scheduling**: Each process is given a number of lottery tickets that
+represent it share of the CPU. When the CPU is to be assigned, the schedular draw
+one random ticket is selected, and the process holding that ticket gets to run.
+
