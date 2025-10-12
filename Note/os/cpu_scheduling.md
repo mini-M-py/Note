@@ -197,11 +197,24 @@ reduced
 ![MLFQ](resource/os_image17.png)
 
 ### Proportional Share Scheduling
-Instead of optimizing trunaround time or response time proportional share 
+Instead of optimizing turnaround time or response time proportional share 
 scheduling will guarantee each job obtain a certain percentage of CPU time.
 One of the great example of is lottery scheduling.
 
 - **Lottery scheduling**: Each process is given a number of lottery tickets that
-represent it share of the CPU. When the CPU is to be assigned, the schedular draw
+represent it share of the CPU. When the CPU is to be assigned, the scheduler draw
 one random ticket is selected, and the process holding that ticket gets to run.
+
+The most beautiful aspect of lottery scheduling is its randomness. Randomness
+avoid strange corner-case behavior and avoid problems like **starvation** and 
+**Gaming scheduler**. Every process has non-zero chance to be selected.
+
+The underlying concept of lottery scheduling is tickets, which represent the 
+share of resources that process should receive. For example, assume A and B are
+two processes, A has 75 tickets and B has 25 tickets. It means A receive 75% of 
+CPU time and B receive 25% of CPU time. Scheduler holds lottery to decide which
+process to run. In this case, there are 100 tickets so A holds 75% of those ticket
+and B holds 25%. Scheduler draw a random ticket from 0 to 99, probabilistically
+there is 75% chance of A getting selected and 25% chance of B getting selected.
+
 
